@@ -1,10 +1,9 @@
 with open("input.txt", "r") as f:
-    lines = f.readlines()
+    lines = [line.strip() for line in f.readlines()]
 
 LEN = 12
 res = 0
 for line in lines:
-    line = line.strip()
     n = len(line)
     T = [[""]*(n+1) for _ in range(n)]
     for i in range(n-1, -1, -1):
