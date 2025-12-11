@@ -12,9 +12,10 @@ for line in lines:
     lights = match[1]
     buttons = [tuple(int(x) for x in s[1:-1].split(",")) for s in match[2].split()]
     #joltage = tuple(int(x) for x in match[match.lastindex].split(","))
-    vals = [sum(2**i for i in b) for b in buttons]
-    val_dst = sum(2**i for i, c in enumerate(lights) if c == "#")
+    vals = [sum(1<<i for i in b) for b in buttons]
+    val_dst = sum(1<<i for i, c in enumerate(lights) if c == "#")
     assert val_dst > 0
+
     n = len(lights)
     for l in range(1, n+1):
         found = False
